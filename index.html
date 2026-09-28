@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychology Major Guide | Middlebury College</title>
+<style>
+  /* Middlebury Visual Identity palette */
+  :root{
+    --blue:#0D395F;      /* Middlebury Blue, PMS 294 */
+    --blue-dk:#08263F;
+    --lblue:#75A3CD;     /* Light Blue, PMS 292 */
+    --pale:#97BBD5;      /* Pale Blue, PMS 544 */
+    --sky:#ACD6EB;       /* Sky Blue, PMS 291 */
+    --gray:#4C4B4C;      /* Gray, PMS 426 */
+    --gold:#B1850B;      /* Gold, PMS 110 */
+    --tan:#DCD8BC;       /* Tan, PMS 7527 */
+    --ink:#1A1A1A;
+    --ground:#F4F6F9; --card:#FFFFFF; --line:#D5DEE7;
+    --tint:#EAF2F9; --note:#F6F4EA;
+    --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.55}
+  a{color:var(--blue)} a:hover{color:var(--blue-dk)}
+  a:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:3px}
+  h1,h2,h3,h4{font-family:var(--font);font-weight:700;margin:0;line-height:1.12;color:var(--blue)}
+  p{margin:0}
+
+  /* Brand bar */
+  .brand{background:#fff;border-top:8px solid var(--blue);border-bottom:1px solid var(--line)}
+  .brand .in{max-width:1140px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .logo{display:flex;align-items:center;min-height:56px}
+  .logo img{height:56px;width:auto;display:block}
+  .logo .fallback{display:none;font-weight:700;font-size:26px;letter-spacing:.2px;color:var(--blue)}
+  .logo.noimg img{display:none} .logo.noimg .fallback{display:block}
+  .dept{font-weight:700;font-size:14px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray)}
+
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px 72px}
+
+  /* Hero */
+  .hero{background:var(--blue);color:#fff;border-radius:0 0 20px 20px;padding:48px 44px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+  .kicker{font-weight:700;color:var(--sky);font-size:14px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:clamp(36px,5.6vw,62px);color:#fff;letter-spacing:-.5px}
+  .hero p{font-size:19px;color:#D6E4F0;max-width:620px;margin-top:16px}
+  .count{flex-shrink:0;background:#fff;color:var(--blue);border-radius:16px;padding:24px 32px;text-align:center;border-bottom:6px solid var(--gold)}
+  .count b{display:block;font-size:88px;line-height:1}
+  .count span{font-weight:700;font-size:14px;letter-spacing:.6px;text-transform:uppercase;color:var(--gray)}
+
+  section{margin-top:52px}
+  section > h2{font-size:28px;margin-bottom:20px;padding-left:14px;border-left:6px solid var(--gold)}
+
+  /* Tile bar */
+  .tiles{display:flex;flex-wrap:wrap;gap:24px 28px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px}
+  .group{display:flex;flex-direction:column;gap:10px}
+  .group .row{display:flex;gap:8px}
+  .tile{width:56px;height:56px;border-radius:10px}
+  .t-found{background:var(--blue)} .t-core{background:var(--lblue)}
+  .t-sem{background:var(--gold)} .t-elec{background:var(--sky)}
+  .t-lab{border:3px dashed var(--blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+  .group label{font-weight:700;font-size:15px;max-width:170px;line-height:1.35;color:var(--gray)}
+
+  /* Cards */
+  .grid-5{display:grid;grid-template-columns:2fr 3fr;gap:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:14px}
+  .card h3{font-size:24px}
+  .head{display:flex;align-items:center;gap:14px}
+  .badge{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex-shrink:0}
+  .b-found{background:var(--blue)} .b-core{background:var(--lblue);color:var(--blue-dk)} .b-sem{background:var(--gold)}
+  .b-elec{background:var(--sky);color:var(--blue-dk)} .b-lab{border:3px dashed var(--blue);color:var(--blue)}
+  .sub{color:var(--gray)}
+  .note{margin-top:auto;background:var(--note);border-left:4px solid var(--gold);border-radius:8px;padding:14px 16px;font-size:15px}
+  .course{display:flex;gap:14px;align-items:baseline;background:var(--tint);border-radius:8px;padding:12px 14px}
+  .course code{font-family:var(--font);font-weight:700;font-size:15px;color:var(--blue);min-width:90px}
+  .areas{margin:0;padding:0;list-style:none}
+  .areas li{display:grid;grid-template-columns:165px minmax(0,1fr);gap:16px;padding:11px 0;border-top:1px solid var(--line)}
+  .areas li:last-child{border-bottom:1px solid var(--line)}
+  .areas strong{font-weight:700;color:var(--blue)}
+  .num{color:var(--gray);font-weight:700;font-size:14px}
+
+  /* Timeline */
+  .timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+  .timeline li{display:flex;flex-direction:column;gap:12px}
+  .track{display:flex;align-items:center;gap:10px}
+  .dot{width:18px;height:18px;border-radius:50%;background:var(--blue);flex-shrink:0}
+  .bar{flex-grow:1;height:3px;background:var(--blue)}
+  .timeline li:last-child .dot{background:var(--gold)}
+  .timeline li:last-child .bar{background:var(--line)}
+  .yr{font-weight:700;color:var(--blue);font-size:14px;letter-spacing:1px;text-transform:uppercase}
+
+  /* Part two */
+  .part{margin-top:80px;padding-top:40px;border-top:4px solid var(--blue)}
+  .part > h2{font-size:clamp(32px,4.6vw,48px);margin-bottom:10px}
+  .part > p{font-size:19px;color:var(--gray);margin-bottom:28px}
+  .pair{display:grid;grid-template-columns:170px minmax(0,1fr);gap:14px}
+  .pair strong{color:var(--blue)}
+  .terms{display:flex;gap:8px}
+  .terms div{flex:1;border-radius:8px;padding:12px;display:flex;flex-direction:column}
+  .terms small{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+  .terms b{font-size:17px}
+  ul.plain{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+  .big{display:flex;align-items:center;gap:20px}
+  .big b{font-size:72px;line-height:1;color:var(--blue)}
+  .wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .box{background:var(--tint);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
+  .box h4{font-size:15px}
+
+  footer.contacts{margin-top:48px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;border-bottom:6px solid var(--gold)}
+  footer.contacts a{color:#fff}
+  footer.contacts small{color:var(--sky);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+  footer.contacts .name{font-size:22px;font-weight:700}
+  .fine{margin-top:20px;font-size:14px;color:var(--gray)}
+
+  @media (max-width:880px){
+    .hero{flex-direction:column;align-items:flex-start;padding:36px 28px}
+    .grid-5,.grid-3,.grid-2,.wide,footer.contacts{grid-template-columns:1fr}
+    .wide{grid-column:auto}
+    .timeline{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){
+    .brand .in{flex-direction:column;align-items:flex-start;gap:8px}
+    .wrap,.brand .in{padding-left:16px;padding-right:16px}
+    .timeline{grid-template-columns:1fr}
+    .areas li,.pair{grid-template-columns:1fr;gap:2px}
+    .tile{width:44px;height:44px}
+    .card{padding:22px}
+    .logo img{height:44px}
+  }
+  @media print{
+    body{background:#fff}
+    .card{break-inside:avoid}
+    .part{break-before:page}
+    .hero,footer.contacts,.tile,.badge,.dot,.terms div{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<div class="brand">
+  <div class="in">
+    <!-- Place the official Middlebury logo file (from the College's brand resources) next to this HTML as "middlebury-logo.svg" or change the src below. -->
+    <div class="logo" id="logo">
+      <img src="middlebury-logo.svg" alt="Middlebury" onerror="this.parentNode.classList.add('noimg')">
+      <span class="fallback">Middlebury</span>
+    </div>
+    <div class="dept">Department of Psychology</div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div>
+      <div class="kicker">Major Requirements Guide</div>
+      <h1>Your Psychology<br>Major Roadmap</h1>
+      <p>At least ten courses across five categories. Here is what counts, when to take it, and what to watch for along the way.</p>
+    </div>
+    <div class="count" aria-label="10 courses minimum"><b>10</b><span>courses minimum</span></div>
+  </header>
+
+  <section aria-labelledby="addup">
+    <h2 id="addup">How the ten add up</h2>
+    <div class="tiles">
+      <div class="group"><div class="row"><div class="tile t-found"></div><div class="tile t-found"></div><div class="tile t-found"></div></div><label>3 Foundation</label></div>
+      <div class="group"><div class="row"><div class="tile t-core"></div><div class="tile t-core"></div><div class="tile t-core"></div></div><label>3 Core</label></div>
+      <div class="group"><div class="row"><div class="tile t-sem"></div></div><label>1 Seminar</label></div>
+      <div class="group"><div class="row"><div class="tile t-elec"></div><div class="tile t-elec"></div><div class="tile t-elec"></div></div><label>3 Electives</label></div>
+      <div class="group"><div class="row"><div class="tile t-lab">+Lab</div></div><label>1 lab course, which can double-count</label></div>
+    </div>
+  </section>
+
+  <section aria-label="Requirement categories">
+    <div class="grid-5">
+      <article class="card">
+        <div class="head"><div class="badge b-found">I</div><h3>Foundation</h3></div>
+        <p class="sub">The empirical toolkit. All three are required.</p>
+        <div class="course"><code>PSYC 0105</code><span>Introduction to Psychology</span></div>
+        <div class="course"><code>PSYC 0201</code><span>Psychological Statistics</span></div>
+        <div class="course"><code>PSYC 0202</code><span>Research Methods in Psychology</span></div>
+        <p class="note"><strong>Timing:</strong> finish 0201 and 0202 by the end of sophomore year, and no later than the end of junior year.</p>
+      </article>
+
+      <article class="card">
+        <div class="head"><div class="badge b-core">II</div><h3>Core</h3></div>
+        <p class="sub">Pick <strong style="color:var(--ink)">3 of these 5 areas</strong>, one course from each.</p>
+        <ul class="areas">
+          <li><strong>Clinical</strong><span>Psychological Disorders <span class="num">0224</span></span></li>
+          <li><strong>Cognitive</strong><span>Cognitive Psychology <span class="num">0227</span>, Emotions <span class="num">0205</span></span></li>
+          <li><strong>Developmental</strong><span>Adolescence <span class="num">0216</span>, Child Development <span class="num">0225</span></span></li>
+          <li><strong>Physiological</strong><span>Brain and Behavior <span class="num">0226</span>, Sensation and Perception <span class="num">0303</span></span></li>
+          <li><strong>Social / Personality</strong><span>Social <span class="num">0203</span>, Personality <span class="num">0204</span>, Cultural <span class="num">0220</span></span></li>
+        </ul>
+        <p class="note"><strong>Timing:</strong> strongly encouraged to finish core courses by the end of junior year.</p>
+      </article>
+    </div>
+
+    <div class="grid-3">
+      <article class="card">
+        <div class="head"><div class="badge b-lab">III</div><h3>Lab</h3></div>
+        <p>At least <strong>one course with a lab section</strong>, on top of Statistics and Research Methods.</p>
+        <p class="sub">It can count as a core or elective at the same time. Look for the lab designation in course descriptions.</p>
+      </article>
+      <article class="card">
+        <div class="head"><div class="badge b-sem">IV</div><h3>Advanced Seminar</h3></div>
+        <p><strong>One 0400-level seminar</strong>, taken junior or senior year.</p>
+        <p class="sub">Seminars focus on synthesizing and integrating theory across the field.</p>
+      </article>
+      <article class="card">
+        <div class="head"><div class="badge b-elec">V</div><h3>Electives</h3></div>
+        <p><strong>Three more PSYC courses</strong> of your choice, winter term included.</p>
+        <p class="sub">One may be independent research: 0350, 0500, 0700, or the 0701/0702/0703 thesis sequence.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="path">
+    <h2 id="path">A suggested path</h2>
+    <ol class="timeline">
+      <li><div class="track"><div class="dot"></div><div class="bar"></div></div><div class="yr">First year</div><p>Start with <strong>PSYC 0105</strong>. It is the gateway to most of the curriculum.</p></li>
+      <li><div class="track"><div class="dot"></div><div class="bar"></div></div><div class="yr">Sophomore</div><p>Take the <strong>0201 then 0202</strong> sequence and begin core courses. Directed Research (0350) is an option with faculty permission.</p></li>
+      <li><div class="track"><div class="dot"></div><div class="bar"></div></div><div class="yr">Junior</div><p>Wrap up core courses and the stats/methods sequence. Thinking about honors? Submit the <strong>Thesis Intent Form by early to mid-March</strong>.</p></li>
+      <li><div class="track"><div class="dot"></div><div class="bar"></div></div><div class="yr">Senior</div><p>Complete your seminar. Optional: Senior Research (0700) or an honors thesis (<strong>0701, 0702, 0703</strong>).</p></li>
+    </ol>
+  </section>
+
+  <div class="part">
+    <h2>Good to know</h2>
+    <p>Research, honors, test scores, transfer credit, and the minor, in one place.</p>
+
+    <div class="grid-2">
+      <article class="card">
+        <h3>Independent research</h3>
+        <p class="sub">Faculty permission is required for all of these.</p>
+        <div class="pair"><strong>Sophomores and juniors</strong><span>Directed Research (0350) or Advanced Research (0500)</span></div>
+        <div class="pair"><strong>Seniors</strong><span>Senior Research (0700) or Senior Thesis (0701/0702/0703)</span></div>
+        <p class="note"><strong>Limit:</strong> one independent research course (0350, 0500, or 0700) per semester.</p>
+      </article>
+
+      <article class="card">
+        <h3>Departmental honors</h3>
+        <p class="sub">A year-long empirical research project across three terms.</p>
+        <div class="terms">
+          <div style="background:var(--blue);color:#fff"><small>Fall</small><b>PSYC 0701</b></div>
+          <div style="background:var(--lblue);color:var(--blue-dk)"><small>Winter</small><b>PSYC 0702</b></div>
+          <div style="background:var(--sky);color:var(--blue-dk)"><small>Spring</small><b>PSYC 0703</b></div>
+        </div>
+        <ul class="plain">
+          <li>Submit a <strong>Thesis Intent Form</strong> by early to mid-March of junior year; talk with a faculty member before then.</li>
+          <li>Minimum <strong>3.5 GPA</strong> in psychology courses for honors candidacy.</li>
+          <li>February entrants follow an adjusted schedule.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>AP and IB scores</h3>
+        <div class="box" style="gap:0"><p><strong>Started Fall 2025 or later:</strong> you must take PSYC 0105. Test scores can't waive it.</p></div>
+        <div class="box" style="gap:0"><p><strong>Started before Fall 2025:</strong> AP 4–5 or IB HL 6–7 can bypass 0105, but only if the score is on file with Middlebury before you enroll in a course that requires 0105.</p></div>
+        <p class="note"><strong>No one</strong> can bypass PSYC 0201 (Psychological Statistics) with a test score.</p>
+      </article>
+
+      <article class="card">
+        <h3>Transfer credit</h3>
+        <div class="big"><b>2</b><p>Maximum psychology courses you can transfer toward the major while enrolled full-time at Middlebury.</p></div>
+        <p class="sub">Need more? Petition the department <strong style="color:var(--ink)">in advance</strong>.</p>
+      </article>
+
+      <article class="card wide">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h3>The minor is closing</h3>
+          <p>As of <strong>Fall 2025</strong>, the psychology minor can no longer be declared.</p>
+          <p class="sub">Interested in psychology alongside another field? See the <strong style="color:var(--ink)">Neuroscience</strong> major or <strong style="color:var(--ink)">Environmental Studies</strong> with a focus in psychology.</p>
+        </div>
+        <div class="box">
+          <h4>Already declared? You need 5 courses</h4>
+          <p><strong>1</strong>: PSYC 0105</p>
+          <p><strong>2</strong>: foundation/core courses (0201, 0202, 0203 or 0204, 0205, 0216 or 0225, 0224, 0226, 0227)</p>
+          <p><strong>2</strong>: electives, one of which may be 0350, 0500, or 0700</p>
+        </div>
+      </article>
+    </div>
+
+    <footer class="contacts">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <small>Coordinator</small>
+        <span class="name">Nancy Peters</span>
+        <span>Bicentennial Hall 282, (802) 443-5838</span>
+        <a href="mailto:nancyp@middlebury.edu">nancyp@middlebury.edu</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <small>Department Chair</small>
+        <span class="name">Mike Dash</span>
+        <span>Bicentennial Hall 281, (802) 443-5823</span>
+        <a href="mailto:mdash@middlebury.edu">mdash@middlebury.edu</a>
+      </div>
+    </footer>
+    <p class="fine">Based on the department's published requirements. The suggested path is a recommendation, not a rule. Confirm your plan with your advisor.</p>
+  </div>
+
+</main>
+</body>
+</html>
